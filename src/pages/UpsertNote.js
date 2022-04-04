@@ -66,19 +66,18 @@ class UpsertNote extends Component {
   render() {
     return (
       <form style={styles.form}>
-        <SimpleMDE value={this.state.text} onChange={this.updateText} />
         <Paper elevation={3} style={styles.paper}>
           <FormControl fullWidth>
             <TextField
-              label="Text"
-              multiline
-              rows={6}
+              label="Title"
               variant="outlined"
-              value={this.state.text}
-              onChange={this.updateText}
+              value={this.state.title}
+              onChange={this.updateTitle}
             />
           </FormControl>
         </Paper>
+        <SimpleMDE value={this.state.text} onChange={this.updateText} />
+
         <div>
           <Button type="button" color="secondary" onClick={this.handleCancel}>
             Cancel
