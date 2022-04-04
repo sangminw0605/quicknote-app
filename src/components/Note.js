@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import { Collapse, List, ListItem, ListItemText, ListItemIcon, Button } from "@material-ui/core";
 import { ExpandLess, ExpandMore, Delete } from "@material-ui/icons";
 
@@ -7,12 +8,12 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          title: "",
-          text: "",
+            title: "",
+            text: "",
         };
-      }
-      
-      
+    }
+
+
 
     deleteNote = (note) => {
         this.setState((state) => {
@@ -59,7 +60,10 @@ class Note extends Component {
                 </ListItem>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItemText secondary={note.text} />
+                        <ListItemText
+                            disableTypography
+                            primary={<ReactMarkdown>{note.text}</ReactMarkdown>}
+                        />
                     </List>
                 </Collapse>
             </>
