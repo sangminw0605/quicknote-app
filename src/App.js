@@ -45,6 +45,15 @@ class App extends Component {
     });
   };
 
+  addNote = (note) => {
+    this.setState((state) => {
+      return {
+        notes: [...state.notes, note],
+      };
+    });
+  }
+
+
   render() {
     const { notes } = this.state;
     return (
@@ -54,7 +63,7 @@ class App extends Component {
             <DisplayNotes notes={notes} deleteNote={this.deleteNote} />
           </Route>
           <Route path="/add">
-            <AddNote />
+            <AddNote addNote={this.addNote} />
           </Route>
         </Switch>
       </Container>
