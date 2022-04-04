@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import { Collapse, List, ListItem, ListItemText, ListItemIcon, Button } from "@material-ui/core";
 import { ExpandLess, ExpandMore, Delete } from "@material-ui/icons";
+import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
+
+
 
 class Note extends Component {
     constructor(props) {
@@ -62,9 +67,21 @@ class Note extends Component {
                     <List component="div" disablePadding>
                         <ListItemText
                             disableTypography
-                            primary={<ReactMarkdown>{note.text}</ReactMarkdown>}
+                            primary={
+                                <Box mx={4}>
+                                    <Paper elevation={4}>
+                                        <Box p={4}>
+                                            <ReactMarkdown
+                                                children={note.text}
+                                                remarkPlugins={[remarkGfm]}
+                                            />
+                                        </Box>
+                                    </Paper>
+                                </Box>
+                            }
                         />
                     </List>
+
                 </Collapse>
             </>
         );
