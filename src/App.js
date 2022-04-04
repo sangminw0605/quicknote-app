@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "@material-ui/core";
 import DisplayNotes from "./pages/DisplayNotes";
+import AddNote from "./pages/AddNote";
+
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class App extends Component {
     return (
       <Container>
         <DisplayNotes notes={notes} deleteNote={this.deleteNote} />
+        <AddNote />
       </Container>
     );
   }
