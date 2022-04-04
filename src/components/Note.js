@@ -10,12 +10,19 @@ class Note extends Component {
         };
     }
 
+    deleteNote = (note) => {
+        this.setState((state) => {
+            return {
+                notes: state.notes.filter((n) => n.id !== note.id),
+            };
+        });
+    };
+
     handleClick = () => {
         this.setState({ open: !this.state.open });
     };
 
     render() {
-        const { note } = this.props;
         const { note, deleteNote } = this.props;
         const { open } = this.state;
 
@@ -40,16 +47,6 @@ class Note extends Component {
             </>
         );
     }
-
-
-    deleteNote = (note) => {
-        this.setState((state) => {
-            return {
-                notes: state.notes.filter((n) => n.id !== note.id),
-            };
-        });
-    };
-
 }
 
 export default Note;
