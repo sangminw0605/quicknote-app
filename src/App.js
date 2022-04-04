@@ -32,7 +32,7 @@ class App extends Component {
       <Container>
         <List>
           {notes.map((note, index) => {
-            return <Note note={note} key={index} />;
+            return <Note note={note} key={index} deleteNote={this.deleteNote} />;
           })}
         </List>
       </Container>
