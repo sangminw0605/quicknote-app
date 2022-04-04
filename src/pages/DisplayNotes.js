@@ -11,7 +11,7 @@ const styles = {
 };
 
 function DisplayNotes(props) {
-  const { notes, deleteNote, classes } = props;
+  const { notes, deleteNote, classes, changePage } = props;
   return (
     <>
       <List>
@@ -19,7 +19,11 @@ function DisplayNotes(props) {
           return <Note note={note} key={index} deleteNote={deleteNote} />;
         })}
       </List>
-      <Fab aria-label={"Add"} className={classes.fab}>
+        <Fab
+          aria-label={"Add"}
+          className={classes.fab}
+          onClick={() => changePage()}
+        >
         <Add />
       </Fab>
     </>
