@@ -31,7 +31,7 @@ class App extends Component {
       return {
         notes: state.notes.filter((n) => n.id !== note.id),
       };
-    });
+    }, this.saveNotes);
   };
 
   addNote = (note) => {
@@ -39,7 +39,7 @@ class App extends Component {
       return {
         notes: [...state.notes, Object.assign(note, { id: uuidv4() })],
       };
-    });
+    }, this.saveNotes);
   }
 
   editNote = (note) => {
@@ -47,9 +47,15 @@ class App extends Component {
       return {
         notes: state.notes.map(n => n.id === note.id ? note : n),
       };
-    });
+    }, this.saveNotes);
   };
 
+  componentDidMount() {
+    const notes = window.localStorage.getItem("notes");
+    this.setState({
+      notes: notes ? JSON.parse(notes) : [],
+    });
+  }  
 
   render() {
     const { notes } = this.state;
