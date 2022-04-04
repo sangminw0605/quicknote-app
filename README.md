@@ -4,7 +4,6 @@ Sangmin Woo
 
 A simple note-taking application that uses browser local storage for persistence.
 
-
 ## Run Locally
 
 Clone the project
