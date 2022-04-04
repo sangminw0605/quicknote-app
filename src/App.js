@@ -1,6 +1,16 @@
 import React, { Component } from "react";
-import { Container, List } from "@material-ui/core";
+import { Container, List, Fab, withStyles } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import Note from "./components/Note";
+
+const styles = {
+  fab: {
+    position: 'absolute',
+    bottom: "2rem",
+    right: "2rem",
+  }
+};
+
 
 class App extends Component {
   constructor(props) {
@@ -35,9 +45,13 @@ class App extends Component {
             return <Note note={note} key={index} deleteNote={this.deleteNote} />;
           })}
         </List>
+        <Fab aria-label={"Add"} className={this.props.classes.fab}>
+          <Add />
+        </Fab>
       </Container>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
+
