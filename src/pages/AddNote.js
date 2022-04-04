@@ -7,6 +7,7 @@ function AddNote(props) {
         event.preventDefault();
         changePage();
     }
+    
     return (
         <form>
             <FormControl fullWidth>
