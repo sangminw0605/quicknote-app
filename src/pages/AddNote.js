@@ -7,7 +7,7 @@ function AddNote(props) {
         event.preventDefault();
         changePage();
     }
-    
+
     return (
         <form>
             <FormControl fullWidth>
@@ -17,7 +17,7 @@ function AddNote(props) {
                 <TextField label="Text" multiline rows={4} variant="outlined" />
             </FormControl>
             <div>
-                <Button type="button" color="secondary">
+                <Button type="button" color="secondary" onClick={handleCancel}>
                     Cancel
                 </Button>
                 <Button type="submit" color="primary">
