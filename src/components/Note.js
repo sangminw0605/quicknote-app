@@ -7,11 +7,11 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          id: this.props.location.state.id || undefined,
-          title: this.props.location.state.title || "",
-          text: this.props.location.state.text || "",
+          title: "",
+          text: "",
         };
       }
+      
       
 
     deleteNote = (note) => {

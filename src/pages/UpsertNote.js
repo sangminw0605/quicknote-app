@@ -16,6 +16,19 @@ class UpsertNote extends Component {
       title: event.target.value,
     });
   };
+  
+  componentDidMount() {
+    const { state } = this.props.location;
+      if (state) {
+        const { id, title, text } = state;
+        this.setState({
+          id,
+          title,
+          text,
+        });
+      }
+    }
+    
 
   updateText = (event) => {
     this.setState({
