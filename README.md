@@ -9,7 +9,7 @@ A simple note-taking application that uses browser local storage for persistence
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/sangminw0605/quicknote-app.git
 ```
 
 Go to the project directory
