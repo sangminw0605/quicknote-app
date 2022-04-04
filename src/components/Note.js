@@ -7,9 +7,12 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+          id: this.props.location.state.id || undefined,
+          title: this.props.location.state.title || "",
+          text: this.props.location.state.text || "",
         };
-    }
+      }
+      
 
     deleteNote = (note) => {
         this.setState((state) => {
