@@ -1,3 +1,5 @@
+Sangmin Woo
+
 # QuickNote App
 
 A simple note-taking application that uses browser local storage for persistence.
