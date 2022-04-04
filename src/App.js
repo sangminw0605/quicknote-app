@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container } from "@material-ui/core";
 import DisplayNotes from "./pages/DisplayNotes";
 import AddNote from "./pages/AddNote";
-
+import { Route, Switch } from "react-router";
 
 class App extends Component {
   constructor(props) {
@@ -46,22 +46,20 @@ class App extends Component {
   };
 
   render() {
-    const { notes, showHomepage } = this.state;
+    const { notes } = this.state;
     return (
       <Container>
-        {showHomepage ? (
-          <DisplayNotes
-            notes={notes}
-            deleteNote={this.deleteNote}
-            changePage={this.changePage}
-          />
-        ) : (
-          <AddNote changePage={this.changePage} />
-        )}
+        <Switch>
+          <Route exact path="/">
+            <DisplayNotes notes={notes} deleteNote={this.deleteNote} />
+          </Route>
+          <Route path="/add">
+            <AddNote />
+          </Route>
+        </Switch>
       </Container>
     );
   }
-
 }
 
 export default App;
