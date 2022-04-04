@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "@material-ui/core";
 import DisplayNotes from "./pages/DisplayNotes";
-import AddNote from "./pages/UpsertNote";
+import UpsertNote from "./pages/UpsertNote";
 import { Route, Switch } from "react-router";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       showHomepage: true,
       notes: [
-        { 
+        {
           id: "5c83c052-60da-425f-a302-9d4735a9d6ae",
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut.",
           text: "In orci urna, feugiat sed est id, sodales pharetra nisl. Etiam mollis vehicula imperdiet. In iaculis convallis leo, a pretium erat rutrum in. Ut lacus sem, lobortis id lacinia nec, imperdiet at quam. Etiam ut risus ligula. Mauris ac enim ut purus iaculis lobortis. Donec euismod vel risus ac blandit. Sed in odio enim. Aliquam dolor nibh, luctus a fermentum dignissim, ornare nec enim. Sed posuere in arcu eu ultricies.",
@@ -25,7 +25,7 @@ class App extends Component {
           id: "95747b61-c935-45e9-a156-325307bade96",
           title: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
           text: "Praesent eleifend, lectus non molestie dictum, arcu sapien accumsan eros, sodales dapibus dolor lacus in dolor. Fusce blandit augue condimentum eros luctus ullamcorper. Praesent hendrerit nunc a augue tempor finibus. Morbi ultricies lectus ac risus hendrerit, a aliquam ante tincidunt. Suspendisse viverra iaculis consequat. Nam nec consectetur diam. Cras porta metus in nibh facilisis interdum. Aenean lobortis feugiat enim quis molestie. Suspendisse ultrices bibendum volutpat. Praesent et orci est. Pellentesque ut fringilla nibh. Donec vel pretium nisl. Praesent varius, magna sit amet mollis rutrum, urna lacus rutrum magna, in cursus lectus massa id lorem. Etiam risus enim, fringilla sit amet lectus at, condimentum maximus nulla.",
-        }, 
+        },
       ],
     };
   }
@@ -54,6 +54,14 @@ class App extends Component {
     });
   }
 
+  editNote = (note) => {
+    this.setState((state) => {
+      return {
+        notes: state.notes.map(n => n.id === note.id ? note : n),
+      };
+    });
+  };
+
 
   render() {
     const { notes } = this.state;
@@ -65,6 +73,9 @@ class App extends Component {
           </Route>
           <Route path="/add">
             <UpsertNote upsertNote={this.addNote} />
+          </Route>
+          <Route path="/edit">
+            <UpsertNote upsertNote={this.editNote} />
           </Route>
         </Switch>
       </Container>

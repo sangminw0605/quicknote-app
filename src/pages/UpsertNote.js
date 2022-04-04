@@ -34,6 +34,7 @@ class UpsertNote extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <form>
         <FormControl fullWidth>
