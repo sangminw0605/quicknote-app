@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FormControl, TextField, Button } from "@material-ui/core";
 import { withRouter } from "react-router";
 
-class AddNote extends Component {
+class UpsertNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class AddNote extends Component {
   };
 
   handleSubmit = (event) => {
-    this.props.addNote(this.state);
+    this.props.upsertNote(this.state);
     this.props.history.push("/");
   };
 
@@ -67,4 +67,4 @@ class AddNote extends Component {
   }
 }
 
-export default withRouter(AddNote);
+export default withRouter(UpsertNote);
