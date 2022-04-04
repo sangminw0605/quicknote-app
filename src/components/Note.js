@@ -44,7 +44,7 @@ class Note extends Component {
                                 }}
                             >
                                 <Button>
-                                    <Edit />
+                                    Edit
                                 </Button>
                             </Link>
                         </ListItemIcon>

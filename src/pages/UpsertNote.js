@@ -24,6 +24,7 @@ class UpsertNote extends Component {
   };
 
   handleSubmit = (event) => {
+    event.preventDefault();
     this.props.upsertNote(this.state);
     this.props.history.push("/");
   };
